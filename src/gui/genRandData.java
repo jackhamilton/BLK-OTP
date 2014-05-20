@@ -174,19 +174,18 @@ public class genRandData extends javax.swing.JFrame {
             if (chosenFile.exists()) {
                 //replace otp1 with connected client name
                 System.out.println("Generating OTP..");
-                otpgen.OTPgen.generateOTP(chosenFile, randData, "otp1");
+                encryption.OTPgen.generateOTP(chosenFile, randData, "otp1");
                 System.out.println("Done.");
             }
         } else {
             System.out.println("Generating OTP..");
-            otpgen.OTPgen.generateOTP(randData, "otp1");
+        encryption.OTPgen.generateOTP(randData, "otp1");
             System.out.println("Done.");
         }
     }//GEN-LAST:event_doneActionPerformed
 
     private void choosefileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_choosefileActionPerformed
         JFileChooser fc = new JFileChooser();
-        //fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
         int returnVal = fc.showOpenDialog(this);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             chosenFile = fc.getSelectedFile();
