@@ -1,6 +1,8 @@
-package gui;
+package gui.twoWayClient;
 
+import java.awt.Dimension;
 import java.awt.MouseInfo;
+import java.awt.Toolkit;
 import java.io.File;
 import javax.swing.JFileChooser;
 
@@ -15,6 +17,10 @@ public class genRandData extends javax.swing.JFrame {
      */
     public genRandData() {
         initComponents();
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (int) ((dimension.getWidth() - getWidth()) / 2);
+        int y = (int) ((dimension.getHeight() - getHeight()) / 2);
+        setLocation(x, y);
     }
 
     /**

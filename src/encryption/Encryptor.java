@@ -11,7 +11,7 @@ import javax.crypto.SecretKey;
  */
 public class Encryptor {
     
-    public void AESEncrypt(File f) {
+    public static SecretKey AESEncrypt(File f) {
         try {
             KeyGenerator keyGen = KeyGenerator.getInstance("AES");
             keyGen.init(256);
@@ -20,12 +20,15 @@ public class Encryptor {
             AES aes = new AES();
             aes.setKey(secretKey.getEncoded());
             Scanner s = new Scanner(f);
-            PrintWriter writer = new PrintWriter(f.getName().replaceAll(".blk", "") + "-encrypted.blk");
+            PrintWriter writer = new PrintWriter(f.getName().replaceAll(".blk", "-encrypted.blk"));
             while (s.hasNext()) {
                 writer.write(aes.Encrypt(s.next()));
             }
             writer.close();
-        } catch (Exception e) {}
+            return secretKey;
+        } catch (Exception e) {
+            return null;
+        }
     }
     
 }
